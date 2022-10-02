@@ -1,2 +1,6 @@
 #enviroment
 venv
+__pycache__
+
+#dist
+out

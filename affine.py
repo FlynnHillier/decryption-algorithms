@@ -6,7 +6,7 @@ def affine(plaintext:str,**kwargs):
     args = deep_update({
         "multi":{
             "range":{
-                "max":16,
+                "max":26,
                 "min":1
             },
             "static":-1,
