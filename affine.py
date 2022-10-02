@@ -59,6 +59,8 @@ def affine(plaintext:str,**kwargs):
             invalid_multipliers.append(multiplier)
             continue
         
+        inverseMultiplier = pow(multiplier,-1,len(alphabet))
+
         for adder in adders:
             out = ""
             for char in plaintext.lower():
@@ -70,10 +72,9 @@ def affine(plaintext:str,**kwargs):
                 if decrypt == False:
                     out += alphabet[((index * multiplier) + adder) % len(alphabet)]
                 else:
-                    out += alphabet[int(((index - adder) / multiplier)) % len(alphabet)]
+                    out += alphabet[((index - adder) * inverseMultiplier) % len(alphabet)]
 
             results.append({"multiplier":multiplier,"addition":adder,"output":out,"decipher":decrypt})
 
     return results
-    
 
