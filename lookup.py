@@ -15,7 +15,7 @@ class Lookup:
             strict = self.strict
         
 
-        checkWords = text.split(" ")[0::1]
+        checkWords = text.split(" ")[:depth]
         score = 0
 
         for word in checkWords:
